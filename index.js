@@ -9,8 +9,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const Book = require('./models/bookmodel');
 const authRoutes = require('./routes/routes');
-const authToken = require('./(auth)/middleware/authtoken');
-const AdminToken = require('./(auth)/middleware/adminauthtoken');
+const authToken = require('./middleware/authtoken');
+const AdminToken = require('./middleware/adminauthtoken');
 dotenv.config();
 
 const app = express();

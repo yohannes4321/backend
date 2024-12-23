@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../../models/usermodel'); // Import the User model
+const User = require('../models/usermodel'); // Import the User model
 
 async function authToken(req, res, next) {
   try {
