@@ -7,7 +7,7 @@ const ForgetPassword = async (req, res) => {
         const { email } = req.body;
         
         // Check if the user exists in the database
-        const user = await userModel.findOne({ email });
+        const user = await User.findOne({ email });
         if (!user) {
             return res.status(404).json({ message: "User does not exist  Sign Up first ", success: false, error: true });
         }
