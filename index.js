@@ -168,7 +168,7 @@ app.get('/books', async (req, res) => {
 });
 
 // Download route
-app.get("/download/:bookId", authToken, async (req, res) => {
+app.get("/download/:bookId", async (req, res) => {
   const { bookId } = req.params;
 
   try {
