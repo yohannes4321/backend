@@ -157,7 +157,7 @@ app.post('/upload', AdminToken, upload.single('file'), async (req, res) => {
 });
 
 // Get all books
-app.get('/books', async (req, res) => {
+app.get('/books',authToken, async (req, res) => {
   try {
     const books = await Book.find();
     res.json(books);
