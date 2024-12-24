@@ -90,7 +90,7 @@ const uploadFileToCloudinary = async (filePath, fileName) => {
 };
 
 // Upload route
-app.post('/upload', AdminToken, upload.single('file'), async (req, res) => {
+app.post('/upload',  upload.single('file'), async (req, res) => {
   // Check if file is uploaded
   if (!req.file) {
     return res.status(400).json({
