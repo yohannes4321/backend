@@ -16,12 +16,27 @@ dotenv.config();
 const app = express();
 
 // CORS configuration
+const allowedOrigins = [
+  'https://covenant-reformed-ministry-ethiopia.onrender.com'
+];
+
 const corsOptions = {
-  origin: 'https://covenant-reformed-ministry-ethiopia.onrender.com', // This allows requests from any domain
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+  credentials: true // Allow cookies to be sent
 };
-app.use(cors(corsOptions))
+
+// Middleware usage
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use('/api', authRoutes);
 
