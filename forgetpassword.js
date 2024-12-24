@@ -49,7 +49,7 @@ const ForgetPassword = async (req, res) => {
         
     } catch (error) {
         console.error("An error occurred during the password reset process:", error);
-        return res.status(500).json({ message: "Internal Server Error", success: false, error: true });
+        return res.status(500).json(error);
     }
 };
 
